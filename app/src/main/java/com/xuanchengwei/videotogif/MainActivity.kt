@@ -8,13 +8,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import com.arthenica.mobileffmpeg.FFmpeg
 import com.xuanchengwei.videotogif.ui.theme.VideoToGifTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,30 +25,6 @@ class MainActivity : ComponentActivity() {
                     Greeting("Android")
                 }
             }
-        }
-    }
-}
-@Composable
-fun MyComposable() {
-    // Load OpenCV library
-    val opencvLoaded = remember { mutableStateOf(false) }
-    val context = LocalContext.current
-    LaunchedEffect(Unit) {
-        opencvLoaded.value = org.opencv.android.OpenCVLoader
-    }
-
-    if (opencvLoaded.value) {
-        // Execute FFmpeg commands
-        val command = arrayOf("-i", "input.mp4", "output.mp4")
-        val result = FFmpeg.execute(command)
-
-        // Check the result
-        if (result == FFmpeg.RETURN_CODE_SUCCESS) {
-            // FFmpeg command executed successfully
-            // Handle the output video here
-        } else {
-            // FFmpeg command failed
-            // Handle the error here
         }
     }
 }
