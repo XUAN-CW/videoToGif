@@ -15,6 +15,8 @@ import com.xuanchengwei.videotogif.ui.theme.VideoToGifTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // /storage/emulated/0/Android/data/com.xuanchengwei.videotogif/files/test/360P.mp4
+        this.getExternalFilesDir("test")
         setContent {
             VideoToGifTheme {
                 // A surface container using the 'background' color from the theme
