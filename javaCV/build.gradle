@@ -97,6 +97,7 @@ def openCVersionCode = ((4 * 100 + 7) * 100 + 0) * 10 + 0
 println "OpenCV: " +openCVersionName + " " + project.buildscript.sourceFile
 
 android {
+    namespace 'com.xuanchengwei.videotogif.opencv'
     compileSdkVersion 33
 
     defaultConfig {
