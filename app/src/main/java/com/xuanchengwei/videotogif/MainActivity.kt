@@ -1,6 +1,7 @@
 package com.xuanchengwei.videotogif
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,12 +12,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.xuanchengwei.videotogif.ui.theme.VideoToGifTheme
+import org.opencv.android.OpenCVLoader
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // /storage/emulated/0/Android/data/com.xuanchengwei.videotogif/files/test/360P.mp4
         this.getExternalFilesDir("test")
+        if(OpenCVLoader.initDebug()){
+            Log.i("OpenCVLoader","SUCCESS")
+        }else{
+            Log.i("OpenCVLoader","F")
+
+        }
         setContent {
             VideoToGifTheme {
                 // A surface container using the 'background' color from the theme
